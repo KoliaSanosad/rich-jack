@@ -107,11 +107,24 @@ export async function watchVideo() {
 export function showSettings(onLang) {
   const st = storage.get();
   const langs = LANGS.map((l) => `<button class="chip-btn ${getLang() === l ? 'active' : ''}" data-lang="${l}">${l.toUpperCase()}</button>`).join('');
+  // ===== TEMP: бесплатное пополнение баланса для теста на сайте. УДАЛИТЬ перед публикацией в Google Play. =====
+  const tempTopup = !IS_APP
+    ? `<button class="btn alt" id="setTopup" data-testid="topup-btn" style="margin-top:12px">${t('settings_topup')} ${coinInline}</button>`
+    : '';
+  // ===== /TEMP =====
   const body = openModal(`<h2>${t('settings_title')}</h2>
     <div class="set-row"><span>${t('settings_lang')}</span><div class="chip-row">${langs}</div></div>
     <div class="set-row"><span>${t('settings_sound')}</span><button class="btn alt" id="setSound">${st.settings.sound ? t('settings_sound_on') : t('settings_sound_off')}</button></div>
+    ${tempTopup}
     <button class="btn alt" id="setReset" style="margin-top:12px">${t('settings_reset')}</button>
     <p style="font-size:12px;color:var(--muted)">${t('settings_rules')}</p>`);
+  // ===== TEMP: обработчик пополнения. УДАЛИТЬ вместе с кнопкой выше. =====
+  body.querySelector('#setTopup')?.addEventListener('click', () => {
+    storage.addCoins(1000); // прибавка через общий storage, без лимита
+    sfx.coin();
+    toast(t('settings_topup_toast'));
+  });
+  // ===== /TEMP =====
   body.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => {
     storage.update((s) => { s.settings.lang = b.dataset.lang; });
     setLang(b.dataset.lang);

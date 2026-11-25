@@ -140,6 +140,8 @@ export const en = {
   settings_sound_on: 'On',
   settings_sound_off: 'Off',
   settings_reset: 'Start over',
+  settings_topup: 'Top up balance (+1000)', // TEMP: website test only
+  settings_topup_toast: '+1000 coins', // TEMP
   settings_reset_confirm: 'Reset balance and all progress?',
   settings_rules: 'Coins are virtual: they cannot be withdrawn, exchanged for money or prizes, or transferred.',
 

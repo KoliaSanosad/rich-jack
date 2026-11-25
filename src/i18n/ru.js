@@ -141,6 +141,8 @@ export const ru = {
   settings_sound_on: 'Включён',
   settings_sound_off: 'Выключен',
   settings_reset: 'Начать заново',
+  settings_topup: 'Пополнить баланс (+1000)', // TEMP: только для теста на сайте
+  settings_topup_toast: '+1000 монет', // TEMP
   settings_reset_confirm: 'Сбросить баланс и весь прогресс?',
   settings_rules: 'Монеты виртуальные: их нельзя вывести, обменять на деньги или призы, или передать.',
 
