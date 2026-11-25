@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0b0906" />
+  <title>Rich Jack</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div id="bg" aria-hidden="true"><div class="nebula"></div><div class="stars s1"></div><div class="stars s2"></div><div class="bg-planet"></div><div class="lobby-reels"></div><div class="lobby-tint"></div></div>
+
+  <main id="app">
+    <header class="top">
+      <button class="icon-btn" id="backBtn" aria-label="В лобби" data-testid="back-btn" hidden>‹</button>
+      <div class="chip balance" data-testid="balance-box"><span class="coin-ico"></span><span id="balance" data-testid="balance">0</span></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Звук" data-testid="sound">🔊</button>
+    </header>
+
+    <div id="screen"></div>
+
+    <div id="betPanel" data-testid="bet-panel" hidden></div>
+
+    <nav class="bottom" id="nav" hidden>
+      <button id="dailyBtn" data-testid="daily-btn"><span>🎁</span>Бонус</button>
+      <button id="awardsBtn" data-testid="awards-btn"><span>🏆</span>Награды</button>
+      <button id="videoBtn" data-testid="video-btn" hidden><span>▶</span>Видео</button>
+      <button id="shopBtn" data-testid="shop-btn"><span>🛒</span>Магазин</button>
+    </nav>
+
+    <p class="legal" id="legal"></p>
+  </main>
+
+  <div id="bigWin" class="big-win" hidden data-testid="big-win"><div class="bw-rays"></div><div class="bw-title" id="bigWinTitle"></div><div class="bw-sum" id="bigWinSum">0</div><div class="bw-coins" id="bigWinCoins"></div></div>
+
+  <div id="modal" class="modal" hidden><div class="modal-card" role="dialog" aria-modal="true"><div id="modalBody"></div></div></div>
+  <div id="toasts" class="toasts"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
